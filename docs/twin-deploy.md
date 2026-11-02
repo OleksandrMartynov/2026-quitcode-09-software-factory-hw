@@ -63,7 +63,11 @@ git push origin ws9-base
 
 1. Supabase Dashboard → New project, той самий регіон, що й основний. Назва — з `factory` у кінці, щоб не сплутати.
    Пароль бази — одразу в менеджер паролів.
-2. Налаштування Auth — як в основному (реєстрацію вимкнено, підтвердження пошти вимкнено):
+2. Перевірте `supabase/config.toml`, розділ `[auth]`: `site_url` і `additional_redirect_urls`. У шаблоні курсу там
+   `http://localhost:3000`. Якщо ви вписали туди прод **основного** проєкту — змініть на прод двійника (комітом у
+   двійник), інакше `config push` запише основний домен у Auth двійника, і посилання з листів та запрошень двійника
+   поведуть на основний прод.
+3. Налаштування Auth — як в основному (реєстрацію вимкнено, підтвердження пошти вимкнено):
 
    ```powershell
    cd C:\pf\twin
@@ -73,10 +77,10 @@ git push origin ws9-base
 
    `supabase link` пише ref у `supabase/.temp/` (у `.gitignore`). Перевірте, що це ref **двійника**: Dashboard двійника →
    Project Settings → General.
-3. **Міграції руками не застосовуйте** (`supabase db push` — ні). Вони йдуть у базу лише через CI `db-deploy`. Перший раз
+4. **Міграції руками не застосовуйте** (`supabase db push` — ні). Вони йдуть у базу лише через CI `db-deploy`. Перший раз
    — вручну з Actions, коли буде секрет (розділ GitHub нижче): Actions → CI → Run workflow, гілка `main`, `include_seed`
    увімкнено. У лозі `db-deploy` мають бути рядки «Applying migration …» і «Finished supabase db push».
-4. Ключі двійника (Project Settings → API Keys) — у `C:\pf\twin\.env.local` за `.env.example`: `NEXT_PUBLIC_SUPABASE_URL`,
+5. Ключі двійника (Project Settings → API Keys) — у `C:\pf\twin\.env.local` за `.env.example`: `NEXT_PUBLIC_SUPABASE_URL`,
    `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`, `DEMO_USER_PASSWORD`.
 
 ### Vercel двійника
@@ -129,8 +133,10 @@ PR одразу**, ще до CI. Чекають лише обов'язкові �
    npm run users:demo
    ```
 
-   Ролі й адреси — ті самі `*@example.test`, що в `accounts.zip`. Щоб PM могли зайти на прод двійника (бонус PM), пароль
-   у `.env.local` двійника — той самий пароль тестових акаунтів, що в `accounts.zip`. Значення — лише в `.env.local`.
+   Створіть ті самі акаунти **тим самим способом, що в основному проєкті**: рядки `supabase/demo-users.json` →
+   `npm run users:demo` (пароль — `DEMO_USER_PASSWORD` з `.env.local` двійника) або запрошенням, якщо так заведено у
+   вас. Щоб PM могли зайти на прод двійника тими самими даними, що в `accounts.zip` (бонус PM), візьміть той самий
+   `DEMO_USER_PASSWORD`, що в основному. Пароль архіву курсу — **не** пароль акаунтів. Значення — лише в `.env.local`.
 2. `https://<проєкт-двійника>.vercel.app/login` — 200; `…/api/health` → `"ok":true`, `"db":"ok"` і `sha` = останній коміт
    `main` двійника. Саме `sha` фабрика (`F uat`) порівнює з комітом злиття перед UAT.
 3. UAT з WS8 працює на двійнику до фабрики: `npm run uat -- --url https://<проєкт-двійника>.vercel.app` проходить на
@@ -175,6 +181,7 @@ PR одразу**, ще до CI. Чекають лише обов'язкові �
 | UAT чи `/api/health` показують сторінку входу Vercel | Deployment Protection увімкнено | вимкніть для проду двійника |
 | `db-deploy` падає на першому запуску | seed не застосовано, або міграцію застосовано руками раніше | перший запуск — Run workflow з `include_seed`; руками `db push` не робимо |
 | UAT: вхід не вдається | демо-користувачів не створено або інший пароль | `npm run users:demo` з `.env.local` двійника |
+| посилання з листа чи запрошення двійника веде на основний прод | `site_url` / `additional_redirect_urls` у `supabase/config.toml` — основний домен, і `config push` записав його в Auth двійника | прод двійника в `config.toml` двійника, знову `npx supabase config push` |
 | `Filename too long` у фабриці | шляхи > 260 символів | `git config core.longpaths true`, короткі `C:\pf\…` |
 | fallow у PR фабрики: «unused file» `scripts/factory-tap.mjs` | скрипт запускають руками | `"scripts/factory-tap.mjs"` у `entry` `.fallowrc.jsonc` (factory-guide, червоні тести) |
 | JSON задачі «не читається» | PowerShell 5.1 `>` пише UTF-16 | `--out <файл>` імпортера |

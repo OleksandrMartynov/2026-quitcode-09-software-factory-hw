@@ -112,7 +112,7 @@ reviews:
         порівняння» — посилання на двійник чи «Ваше репо»; частковий прогін з чесним поясненням — нормально.
         Ще поля бонусу розробника: «Тег ws9-base в основному репо» — https://github.com/<owner>/<team-slug>/tree/ws9-base
         у «Ваше репо»; «Формат вимог PM» — де й як PM пише AC (docs чи issues; lines, table, block чи свій адаптер);
-        «Червоні тести (tests-first)» — …/commit/<sha> у репо двійника з AC ID; «Приховані сценарії» — назва набору,
+        «Червоні тести (tests-first)» — …/tree/ws9-red або …/commit/<sha> у репо двійника з AC ID; «Приховані сценарії» — назва набору,
         кількість на AC і «запечатано» (посилання на відкритий holdouts/*.json у репо двійника — ❌: будівельник
         фабрики міг би його прочитати; значення FACTORY_HOLDOUT_KEY — ❌); «AC, які доводить лише UAT» — AC ID або
         «немає». «Прогони фабрики» — кожен run id виду run-<14 цифр>-<6 hex> зі станом (released, refused,
@@ -247,8 +247,8 @@ reviews:
           Прод-URL (the same host is a FAIL: the factory must never touch the main prod); run ids, proof-pack
           digests and links to the twin's PRs, UAT report and comparison report are given; an honest partial run
           is fine. Developer bonus, further fields: "Тег ws9-base" is a /tree/ws9-base link in "Ваше репо";
-          "Формат вимог PM" says where and how the PM writes AC; "Червоні тести" is a /commit/<sha> link in the
-          twin repo with AC IDs; "Приховані сценарії" names the set, the count per AC and that it is sealed (a
+          "Формат вимог PM" says where and how the PM writes AC; "Червоні тести" is a /tree/ws9-red or /commit/<sha>
+          link in the twin repo with AC IDs; "Приховані сценарії" names the set, the count per AC and that it is sealed (a
           link to an unsealed holdouts/*.json inside the twin repo is a FAIL); "AC, які доводить лише UAT" lists
           AC IDs or says "немає"; every run id matches run-<14 digits>-<6 hex> and has a state; every proof-pack
           digest is 64 hex. An honest partial run (limits, needs-human) that says where and why it stopped is a
