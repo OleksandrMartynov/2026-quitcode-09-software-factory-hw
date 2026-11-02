@@ -114,7 +114,7 @@ and merge → зелений `db-deploy`. Цього тижня PR задач �
    вертикальними задачами «Done when: AC-…», як у
    [WS7, крок 6](https://github.com/koldovsky/2026-quitcode-07-fullstack-hw/blob/main/docs/walkthrough-dev.md#6-план-impl-зріз2-45-хв--трек-c).
    Окремим пунктом кожної задачі — тести на її AC і доказ, що тест відмови здатен упасти.
-5. **Після уточнень PM (Сб 07.11 або пізніше):** `/requirements-sync` ще раз → PR «Оновлення вимог». Якщо PM змінив AC
+5. **Після уточнень PM (Сб 07.11 або пізніше):** `/requirements-sync` ще раз → PR «Оновлення вимог». Якщо AC змінено
    — зміна специфікації `clarify-<зріз3>` (MODIFIED / ADDED / REMOVED), як у
    [WS7, крок 10](https://github.com/koldovsky/2026-quitcode-07-fullstack-hw/blob/main/docs/walkthrough-dev.md#10-після-уточнень-pm-3045-хв--трек-a).
    Якщо агент відповів «Вимоги актуальні» — рядок `/requirements-sync <YYYY-MM-DD>: Вимоги актуальні` у файлі здачі.

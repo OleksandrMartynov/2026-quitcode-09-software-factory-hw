@@ -17,7 +17,7 @@
 - Звичайно: <!-- https://github.com/<dev>/<team-slug>, SHA main, прод https://<проєкт>.vercel.app -->
 - Фабрика: <!-- https://github.com/<dev>/<team-slug>-factory, SHA main, прод https://<проєкт-двійника>.vercel.app -->
 - Фабрика й імпортер: <!-- курс-редакція (коміт) і ваш адаптер: …/commit/<sha> -->
-- Моделі фабрики: <!-- будівельник, рев'юер (з «Cost and provenance») -->
+- Моделі фабрики: <!-- виконавець, рецензент (з «Cost and provenance») -->
 
 ## Прогони фабрики
 

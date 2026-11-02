@@ -4,7 +4,7 @@
 сама. Автозлиття й `db-deploy` фабрики ніколи не торкаються основного проду.
 
 Промпт перевірки — [F08](prompts.md#f08); як потім запустити фабрику — [factory-guide](factory-guide.md). Бюджет —
-**1,5–2 год**. Курс-редакція фабрики називає двійник «близнюком» (`docs/uk/twin.md`) — це те саме.
+**1,5–2 год**. Гайд двійника в курс-редакції — `docs/uk/twin.md`.
 
 ## Навіщо окреме розгортання
 
@@ -146,7 +146,7 @@ PR одразу**, ще до CI. Чекають лише обов'язкові �
 
 | Де | Що | Хто бачить |
 |---|---|---|
-| `C:\pf\twin\.env.local` (у `.gitignore`) | ключі Supabase **двійника**, `DEMO_USER_PASSWORD` | ви; хук фабрики не дає будівельнику читати `**/.env*` |
+| `C:\pf\twin\.env.local` (у `.gitignore`) | ключі Supabase **двійника**, `DEMO_USER_PASSWORD` | ви; хук фабрики не дає виконавцю читати `**/.env*` |
 | GitHub, environment `production` | `SUPABASE_DB_URL` двійника | лише job `db-deploy` на `main` |
 | Vercel двійника | `NEXT_PUBLIC_*`, `SUPABASE_SECRET_KEY` (лише Production) | збірка й сервер |
 | менеджер паролів | пароль бази двійника, `FACTORY_HOLDOUT_KEY` | ви |
