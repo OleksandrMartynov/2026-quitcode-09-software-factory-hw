@@ -48,7 +48,12 @@ foreach ($f in "scripts/smoke.mjs", ".github/workflows/smoke.yml") {
 
 ## Фабрика (бонус)
 
-[`factory/`](factory/README.md) — наповнюємо в хвилі 2.
+| Тека тут | Що в ній |
+|---|---|
+| [`factory/`](factory/README.md) | шаблон звіту порівняння «звичайно проти фабрики», зразок задачі фабрики з демо-двійника (лише подивитися) |
+
+Сама фабрика — курс-редакція [`koldovsky/2026-quitcode-09-factory`](https://github.com/koldovsky/2026-quitcode-09-factory);
+як запустити — [factory-guide](../docs/factory-guide.md), двійник — [twin-deploy](../docs/twin-deploy.md).
 
 ## Залежності (точні версії)
 
