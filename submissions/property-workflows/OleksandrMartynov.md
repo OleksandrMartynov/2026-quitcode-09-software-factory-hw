@@ -64,3 +64,7 @@
 - UAT на проді двійника: https://github.com/OleksandrMartynov/property-workflows-factory/blob/02367c24ebd1eb92e94b5cf5312c4b5bbfed7ca9/docs/qa/uat/2026-11-09/report.md — AC-VENDOR-01…10 PASS (фінальний прогін на a56e1dd); історія прогонів 1–4 (NEEDS-HUMAN AC-VENDOR-02, FAIL AC-VENDOR-05, FAIL AC-VENDOR-09 — тест) — https://github.com/OleksandrMartynov/property-workflows-factory/tree/02367c24ebd1eb92e94b5cf5312c4b5bbfed7ca9/docs/qa/uat/2026-11-09-history
 - Звіт порівняння: https://github.com/OleksandrMartynov/property-workflows-factory/blob/02367c24ebd1eb92e94b5cf5312c4b5bbfed7ca9/docs/qa/factory-comparison.md
 - Втручання людини й ліміти: approve config ×2, approve intent ×6, approve plan ×4, resume ×5, answer 0; ручні коміти — 7 «тести спершу» + 1 доданий тест після FAIL mutation, контракт і nonFunctionals кожної задачі, обгортка агента для macOS (вхід CLI через Keychain), перезапуск CI на https://github.com/OleksandrMartynov/property-workflows-factory/pull/5 (GitHub не створив jobs), `template:ac` на проді двійника, людські PR https://github.com/OleksandrMartynov/property-workflows-factory/pull/1, https://github.com/OleksandrMartynov/property-workflows-factory/pull/2, https://github.com/OleksandrMartynov/property-workflows-factory/pull/9; вартість фабрики $3.09 за 8 прогонів, лімітів вистачило
+
+### PM
+
+—
